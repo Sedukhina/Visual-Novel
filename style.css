@@ -1,0 +1,356 @@
+/*General background and font style*/
+body{
+	background-color: #60A659;
+	background-image: url(./content/locations/Main.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+	font-family: 'Brush Script MT', cursive;
+	margin-top: 0px;
+}
+
+/*Standart elements*/
+button {
+    font-size: clamp(10px, 4vw, 100px);
+	font-family: 'Brush Script MT', cursive;
+	border: none;
+	background-color:#873130;
+	color: white;
+	border-radius: 7px;
+	
+}
+
+h1 {
+	font-size:3vw;
+}
+
+textarea {
+	resize: vertical;
+}
+
+canvas{
+	z-index: 100;
+}
+
+input[type='radio'] { 
+	transform: translate(3vw, 50%);
+	scale: 2;
+}
+
+a{
+	color: white;
+}
+
+.box {
+    display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+/*Navigation buttons*/
+.navbutton{
+	background-color:#11ffee00;
+}
+
+/*Close form buttons*/
+.closeButton{
+	justify-content: right;
+	background-color:#11ffee00;
+	border-color: azure;
+}
+
+.textLink{
+	border: none;
+	background-color:#11ffee00;
+	font-size: clamp(0.9375rem, 0.5625rem + 1.5vw, 3rem);
+}
+
+/*Button icons*/
+.ico{
+	width: clamp(55px, 5vw, 2000px);
+}
+
+.logout{
+	font-size: clamp(0.625rem, 0.3977rem + 0.9091vw, 1.875rem);
+}
+
+.userForm{
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 100;
+	white-space: pre-line;
+	width: min(60%, 1200px);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color:#873130;
+	border-radius: 10px;
+}
+
+.userInfo{
+	font-size: clamp(0.9375rem, 0.5625rem + 1.5vw, 3rem);
+	font-family: 'Brush Script MT', cursive;
+	border: none;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	right: 0;
+}
+
+.subUserInfo{
+	flex-direction: column;
+}
+
+
+/*Money*/
+
+.featuresCards{
+	width: 26%;
+	background-color: rgba(79, 27, 27, 0.8);
+	border-radius: 10px;
+}
+
+.features{
+	transform: translate(10%, 0%);
+	width: 80%;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(79, 27, 27, 0.8);
+	border-radius: 10px;
+}
+  
+.cardContent {
+	flex: 1 1 auto;
+}
+
+.cardFooter{
+	align-self: center;
+	text-align: center;
+}
+
+.shop{
+	justify-content: space-between;
+	display: flex;
+	left: 30%;
+	width: 75%;
+}
+
+/*All forum styles*/
+.forum{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	z-index: 70;
+	white-space: pre-line;
+	width: min(60%, 1200px);
+	position: fixed;
+	top: 25%;
+	left: 30%;
+	transform: translate(-15%, -15%);
+	background-color: rgba(70,0,0,.8);
+    color: #fff;
+	border-radius: 10px;
+}
+
+.forumText{
+	margin-left: 1vw;
+}
+
+.forum-messages{
+	margin-left: 1vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	white-space: pre-line;
+	overflow-y: scroll;
+	overflow-x: clip;
+	max-height: 50vh;
+}
+
+.formSubmission{
+	font-size:2vw;
+	font-family: 'Brush Script MT', cursive;
+	border: none;
+	background-color:#873130;
+	color: white;
+	border-radius: 10px;
+}
+
+.messageForm{
+	width: 99%;
+	border-radius: 10px;
+}
+
+/*All game related*/
+.game{
+	width: 100%;
+	height:100%
+}
+
+.gameCanvas{
+	display: none;
+	position: fixed;
+	z-index: 150;
+	left: 0%;
+}
+
+.gameNavigation.forward{
+	transform: translate(-50%, -50%);
+}
+
+.gameNavigation.back{
+	transform: translate(-50%, +120%);
+}
+
+.gameNavigation.right{
+	transform: translate(+50%, 70%);
+}
+
+.gameNavigation.left{
+	transform: translate(-150%, 70%);
+}
+
+.gameNavigation{
+	align-items: center;
+	top: 70%;
+	left: 50%;
+	position: fixed;
+	z-index: 100;
+	display: none;
+}
+
+.playerCues{
+	position: fixed;
+	bottom: 0%;
+	z-index: 100;
+	display: none;
+	background-color: rgba(255, 253, 253, 0.5);
+	border-radius: 10px;
+	width: 100%
+}
+
+.charactersCues{
+	position: fixed;
+	top: 20%;
+	right: 10%;
+	z-index: 100;
+	display: none;
+	background-color: rgba(255, 253, 253, 0.9);
+	border-radius: 7px;
+	width: 40%
+}
+
+.appearance{
+	height: 15vh;
+	width: 15vh;
+	left: 0%
+}
+
+/*Some small changes for any object*/
+.width40{
+	width: 40%;
+	justify-content: space-between;
+}	
+
+.width5{
+	width: 5%;
+}	
+
+.width100{
+	width: 100%;
+	justify-content: space-between;
+}	
+
+.topmargin{
+	margin-top: 1%;
+}
+
+.leftmargin{
+	margin-left: 1%;
+}
+
+.displayNone{
+	display: none;
+}
+
+.column{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.row{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+/*Slider*/
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+  }
+  
+  .switch input { 
+	opacity: 0;
+	width: 0;
+	height: 0;
+  }
+  
+  .slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #d76bb0;
+	-webkit-transition: .4s;
+	transition: .4s;
+  }
+  
+  .slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+  }
+  
+  input:checked + .slider {
+	background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+	box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+	border-radius: 34px;
+  }
+  
+  .slider.round:before {
+	border-radius: 50%;
+  }
+  

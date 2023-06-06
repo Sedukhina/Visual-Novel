@@ -1,0 +1,51 @@
+{
+    "dialogue_1": {
+      "Location": null,
+      "Cues_1": {
+        "Players_Cues": {
+            "1": {
+              "Cue": "...",
+              "Next": " Cues_2"
+            }
+        },
+        "Characters": {
+          "Alice":{
+            "Emotion": "Excited",
+            "Cue": "Welcome, Traveller"
+          }
+        }
+      },
+      "Cues_2": {
+        "Players_Cues": {
+          "1": {
+            "Cue": "...",
+            "Next": "dialogue_2"
+          }
+        },
+        "Characters": {
+          "Alice":{
+            "Emotion": "Excited",
+            "Cue": "Make your first step"
+          }
+        }
+      }
+    },
+    "dialogue_2": {
+      "Location": "City_Entrance.png",
+      "Cues_1": {
+        "Players_Cues": {
+          "1": {
+            "Cue": "...",
+            "Next": null
+          }
+        },
+        "Characters": {
+          "Alice":{
+            "Emotion": "Proud",
+            "Cue": "Congratulations, you made your first step in this world"
+          }
+        },
+        "Next": null
+      }
+    }
+}
