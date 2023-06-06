@@ -1,6 +1,20 @@
 <?php
     require_once __DIR__.'\..\boot.php';
 
+
+    $stmt = pdo_users()->prepare("SELECT * FROM `Users` WHERE Username = :Username");
+    $stmt->execute(['Username' => $_SESSION['Username']]);
+    $Energy;
+
+    foreach ($stmt as $row){
+        $Energy = $row['Energy'];
+    }
+
+    $Energy = $Energy - 2;
+
+    $stmt = pdo_users()->prepare("UPDATE `Users` SET `Energy`= :Energy  WHERE Username = :Username");
+    $stmt->execute(['Energy' => $Energy, 'Username' => $_SESSION['Username']]);
+
     $stmt = pdo_users()->prepare("SELECT * FROM `GameProgress` WHERE Username = :Username");
     $stmt->execute(['Username' => $_SESSION['Username']]);
 

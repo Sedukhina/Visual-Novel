@@ -15,6 +15,7 @@
         <div id = "Game" class = "game">
             <canvas class = "GameCanvas" id="GameCanvas"></canvas>
             <div id = "CharactersCues" class = "charactersCues"></div>
+            <div id = "EpisodeMenu" class = "episodeMenu"></div>
             <img id = "MoveForward" class ="gameNavigation forward" src="..//content//details//move_forward.png" alt="Move Forward" onclick = "Move('Forward')"/>
             <img id = "MoveBack" class ="gameNavigation back" src="..//content//details//move_back.png" alt="Move Back" onclick = "Move('Back')"/>
             <img id = "MoveRight" class ="gameNavigation right" src="..//content//details//move_right.png" alt="Move Right" onclick = "Move('Right')"/>

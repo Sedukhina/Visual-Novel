@@ -18,8 +18,9 @@ function LoadGame(){
 					LoadEpisodeMenu();
 				}
 				else{
-					if(Object.is(GameProgress["CurrentDialogue"], "")){
+					if(Object.is(GameProgress["CurrentDialogue"], "") || (Object.is(GameProgress["CurrentDialogue"], null))){
 						if(!Object.is(GameProgress["CurrentLocation"], "")){
+							console.log("Cue loc: ", GameProgress["CurrentLocation"])
 							document.body.style.backgroundImage = "url(./content/locations/"+ GameProgress["CurrentLocation"] + ".png)";
 							$.ajax({
 								type: "post",
@@ -57,7 +58,7 @@ function LoadCues(Players_Cues, Characters, canvas){
 	$('#PlayersCues').empty();
 	$('#CharactersCues').empty();
 	for(var Cue in Players_Cues) {
-		$('#PlayersCues').append("<button class = 'textLink' onClick = 'NextCue("+'"'+ Players_Cues[Cue]["Next"] +'"'+ ")'>" + Players_Cues[Cue]["Cue"] + "</button>");
+		$('#PlayersCues').append("<button class = 'textLink width100' onClick = 'NextCue("+'"'+ Players_Cues[Cue]["Next"] +'"'+ ")'>" + Players_Cues[Cue]["Cue"] + "</button>");
 	}
 	var ctx = canvas.getContext('2d');
 	for(var Character in Characters) {
@@ -93,6 +94,8 @@ function NextCue(Next){
 		EndDialogue(Next.replace("dialogue_", ""));
 	}
 	else{
+		document.getElementById('CharactersCues').style.display = "none";
+		document.getElementById('PlayersCues').style.display = "none";
 		EndEpisode();
 	}
 }
@@ -121,10 +124,22 @@ function EndDialogue(Next){
 }
 
 function LoadEpisodeMenu(){
-	
+	$.ajax({
+		type: "post",
+		url:  "/../game/get-episode-menu.php",
+		dataType: "html",
+		success: function(html)
+		{
+			console.log("sdfsd");
+			$('#EpisodeMenu').empty();
+			$('#EpisodeMenu').append(html);
+			document.getElementById('EpisodeMenu').style.display = "block";
+		}
+	});
 }
 
 function LoadNavigation(DirectionArray){
+	console.log(DirectionArray);
 	if(!(Object.is(DirectionArray["ForwardLocation"], null))){
 		document.getElementById('MoveForward').style.display = "block";
 	}
@@ -160,10 +175,39 @@ function Move(Direction){
         url:  "/../game/move.php",
 		data: {Direction: Direction},
 		dataType: "text",
-        success: function(text)
+        success: function(loc)
         {
-
 			LoadGame();
+			StartDialogueIfPosssible(loc);
+			$('#user-info').load("/ajax/user-info.php");
 		}          
     });
+}
+
+function StartDialogueIfPosssible(loc){
+	$.ajax({
+		type: "post",
+		url:  "/../game/get-next-dialogue.php",
+		dataType: "text",
+		success: function(dialogue_id)
+		{
+			$.ajax({
+				type: "post",
+				url:  "/../game/get-dialogue-location.php",
+				data: {dialogue_id: dialogue_id},
+				success: function(location){
+					if(!Object.is(location, loc)){
+						$.ajax({
+							type: "post",
+							url:  "/../game/start-dialogue.php",
+							data: {dialogue_id: dialogue_id},
+						})
+						console.log(location);
+						LoadGame();
+						LoadNavigation({"ForwardLocation": null, "BackLocation" : null, "RightLocation": null, "LeftLocation": null});
+					}
+				}
+			})
+		}
+	})
 }

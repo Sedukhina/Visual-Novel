@@ -31,7 +31,7 @@
       }
     },
     "dialogue_2": {
-      "Location": "City_Entrance.png",
+      "Location": "City_Entrance",
       "Cues_1": {
         "Players_Cues": {
           "1": {
